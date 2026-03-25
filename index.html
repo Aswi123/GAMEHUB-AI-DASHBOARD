@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Quiz Platform</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<h1>Secure Quiz Platform</h1>
+
+<!-- MAIN -->
+<div class="card" id="main">
+    <h2>Select Portal</h2>
+    <button onclick="show('studentLogin')">Student</button>
+    <button onclick="show('adminLogin')">Admin</button>
+</div>
+
+<!-- STUDENT LOGIN -->
+<div class="card hidden" id="studentLogin">
+    <h2>Student Login</h2>
+    <input id="luser" placeholder="Username" autocomplete="off">
+    <input id="lpass" type="password" placeholder="Password" autocomplete="new-password">
+    <button onclick="login()">Login</button>
+    <button onclick="show('register')">Register</button>
+    <button onclick="backMain()">Back</button>
+</div>
+
+<!-- REGISTER -->
+<div class="card hidden" id="register">
+    <h2>Register</h2>
+    <input id="ruser" placeholder="Username" autocomplete="off">
+    <input id="rpass" type="password" placeholder="Password">
+    <button onclick="register()">Create</button>
+    <button onclick="show('studentLogin')">Back</button>
+</div>
+
+<!-- ADMIN LOGIN -->
+<div class="card hidden" id="adminLogin">
+    <h2>Admin Login</h2>
+    <input id="auser" placeholder="Admin Username">
+    <input id="apass" type="password" placeholder="Password">
+    <button onclick="adminLogin()">Login</button>
+    <button onclick="show('adminRegister')">Create Admin</button>
+    <button onclick="backMain()">Back</button>
+</div>
+
+<!-- ADMIN REGISTER -->
+<div class="card hidden" id="adminRegister">
+    <h2>Create Admin</h2>
+    <input id="newAdminUser" placeholder="Admin Username">
+    <input id="newAdminPass" type="password" placeholder="Password">
+    <button onclick="createAdmin()">Create</button>
+    <button onclick="show('adminLogin')">Back</button>
+</div>
+
+<!-- STUDENT DASHBOARD -->
+<div class="card hidden" id="student">
+    <h2>Welcome <span id="userDisplay"></span></h2>
+    <button onclick="startQuiz()">Start Quiz</button>
+    <button onclick="showResults()">My Results</button>
+    <button onclick="logout()">Logout</button>
+</div>
+
+<!-- ADMIN DASHBOARD -->
+<div class="card hidden" id="admin">
+    <h2>Admin Panel</h2>
+    <input id="q" placeholder="Question">
+    <input id="c" placeholder="Correct Answer">
+    <input id="w1" placeholder="Wrong1">
+    <input id="w2" placeholder="Wrong2">
+    <input id="w3" placeholder="Wrong3">
+    <button onclick="addQ()">Add Question</button>
+    <button onclick="viewAll()">View All Results</button>
+    <button onclick="logout()">Logout</button>
+</div>
+
+<!-- QUIZ -->
+<div class="card hidden" id="quiz">
+    <h3 id="question"></h3>
+    <ul id="options" class="options"></ul>
+    <button onclick="next()">Next</button>
+</div>
+
+<!-- RESULT -->
+<div class="card hidden" id="result">
+    <h2>Score: <span id="score"></span></h2>
+    <button onclick="back()">Back</button>
+</div>
+
+<!-- STUDENT RESULTS -->
+<div class="card hidden" id="userResults">
+    <h2>My Attempts</h2>
+    <ul id="myRes"></ul>
+    <button onclick="back()">Back</button>
+</div>
+
+<!-- ADMIN RESULTS -->
+<div class="card hidden" id="allResults">
+    <h2>All Results</h2>
+    <ul id="allRes"></ul>
+    <button onclick="backAdmin()">Back</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
